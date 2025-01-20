@@ -23,11 +23,13 @@ namespace IbragimovD41
         public ProductPage()
         {
             InitializeComponent();
+
+            var currentProducts = IbragimovD41Entities.GetContext().Product.ToList();
+
+            ProductListView.ItemsSource = currentProducts;
+            
         }
 
-        private void BtnGo_Click(object sender, RoutedEventArgs e)
-        {
-            Manager.MainFrame.Navigate(new AddEditPage());
-        }
+        
     }
 }

@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +64,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IbragimovD41Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IbragimovD41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>IbragimovD41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderProduct.cs">
+      <DependentUpon>IbragimovD41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PickUpPoint.cs">
+      <DependentUpon>IbragimovD41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>IbragimovD41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>IbragimovD41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>IbragimovD41Model.tt</DependentUpon>
+    </Compile>
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -69,6 +101,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IbragimovD41Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IbragimovD41Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IbragimovD41Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IbragimovD41Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -101,6 +143,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="IbragimovD41Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IbragimovD41Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="IbragimovD41Model.edmx.diagram">
+      <DependentUpon>IbragimovD41Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -113,22 +163,40 @@
     <Resource Include="image\picture.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Товар_import\B320R5.jpg" />
-    <Resource Include="Товар_import\D329H3.jpg" />
-    <Resource Include="Товар_import\D572U8.jpg" />
-    <Resource Include="Товар_import\F572H7.jpg" />
-    <Resource Include="Товар_import\F635R4.jpg" />
-    <Resource Include="Товар_import\G432E4.jpg" />
-    <Resource Include="Товар_import\G783F5.jpg" />
-    <Resource Include="Товар_import\H782T5.jpg" />
-    <Resource Include="Товар_import\J384T6.jpg" />
-    <Resource Include="Товар_import\А112Т4.jpg" />
+    <Resource Include="image\B320R5.jpg" />
+    <Resource Include="image\D329H3.jpg" />
+    <Resource Include="image\D572U8.jpg" />
+    <Resource Include="image\F572H7.jpg" />
+    <Resource Include="image\F635R4.jpg" />
+    <Resource Include="image\G432E4.jpg" />
+    <Resource Include="image\G783F5.jpg" />
+    <Resource Include="image\H782T5.jpg" />
+    <Resource Include="image\J384T6.jpg" />
+    <Resource Include="image\А112Т4.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IbragimovD41Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IbragimovD41Model.Context.cs</LastGenOutput>
+      <DependentUpon>IbragimovD41Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="IbragimovD41Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IbragimovD41Model.edmx</DependentUpon>
+      <LastGenOutput>IbragimovD41Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Товар_import\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

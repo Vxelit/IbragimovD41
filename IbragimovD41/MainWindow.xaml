@@ -8,6 +8,7 @@
         Title="41 Размер ИбрагимовД ИСП-3322" Height="400" Width="700"
         Icon="image/icon.ico"
         FontFamily="Comic Sans MS"
+        MinHeight="400" MinWidth="700"
         >
     <Grid Background="#FFFFCC99">
         <Grid.RowDefinitions>
