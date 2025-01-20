@@ -27,9 +27,64 @@ namespace IbragimovD41
             var currentProducts = IbragimovD41Entities.GetContext().Product.ToList();
 
             ProductListView.ItemsSource = currentProducts;
-            
+
+            ComboType.SelectedIndex = 0;
         }
 
+        public void UpdateProducts() {
+            var currentProducts = IbragimovD41Entities.GetContext().Product.ToList();
+
+            if (ComboType.SelectedIndex == 1)
+            {
+                currentProducts = currentProducts.Where(p => (Convert.ToInt32(p.ProductDiscountAmount) >= 0 && Convert.ToInt32(p.ProductDiscountAmount) <= 10)).ToList();
+            }
+            if (ComboType.SelectedIndex == 2)
+            {
+                currentProducts = currentProducts.Where(p => (Convert.ToInt32(p.ProductDiscountAmount) >= 10 && Convert.ToInt32(p.ProductDiscountAmount) <= 15)).ToList();
+            }
+            if (ComboType.SelectedIndex == 3)
+            {
+                currentProducts = currentProducts.Where(p => (Convert.ToInt32(p.ProductDiscountAmount) >= 15)).ToList();
+            }
+
+            currentProducts = currentProducts.Where(p => (p.ProductName.ToLower().Contains(SearchTBox.Text.ToLower()))).ToList();
         
+            if (RButtonDown.IsChecked.Value)
+            {
+                currentProducts = currentProducts.OrderByDescending(p => p.ProductCost).ToList();
+            }
+
+            if (RButtonUp.IsChecked.Value)
+            {
+                currentProducts = currentProducts.OrderBy(p => p.ProductCost).ToList();
+            }
+
+            ProductsCountText.Text = "кол-во " + currentProducts.Count + " из " + IbragimovD41Entities.GetContext().Product.ToList().Count(); ;
+
+            ProductListView.ItemsSource = currentProducts;
+        }
+
+        private void RButtonUp_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateProducts();
+        }
+
+        private void RButtonDown_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateProducts();
+
+        }
+
+        private void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateProducts();
+
+        }
+
+        private void SearchTBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateProducts();
+
+        }
     }
 }

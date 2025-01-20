@@ -11,7 +11,7 @@ namespace IbragimovD41
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +19,7 @@ namespace IbragimovD41
         {
             this.OrderProduct = new HashSet<OrderProduct>();
         }
-
+    
         public string ProductArticleNumber { get; set; }
         public string ProductName { get; set; }
         public string ProductUnit { get; set; }
@@ -34,7 +34,8 @@ namespace IbragimovD41
         public string ProductImage { get; set; }
         public string ProductStatus { get; set; }
 
-        public string ImageFullPath {
+        public string ImageFullPath
+        {
             get
             {
                 if (this.ProductImage != null)
@@ -42,7 +43,9 @@ namespace IbragimovD41
                 return null;
             }
         }
-    
+
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
     }

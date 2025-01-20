@@ -181,22 +181,22 @@
     <Resource Include="image\icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Товар_import\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="IbragimovD41Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>IbragimovD41Model.Context.cs</LastGenOutput>
       <DependentUpon>IbragimovD41Model.edmx</DependentUpon>
+      <LastGenOutput>IbragimovD41Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="IbragimovD41Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>IbragimovD41Model.edmx</DependentUpon>
       <LastGenOutput>IbragimovD41Model.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Товар_import\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
