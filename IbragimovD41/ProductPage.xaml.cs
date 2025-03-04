@@ -20,9 +20,21 @@ namespace IbragimovD41
     /// </summary>
     public partial class ProductPage : Page
     {
-        public ProductPage()
+
+        public ProductPage(User user)
         {
             InitializeComponent();
+
+            if (user == null)
+            {
+                FIOTB.Text += "Гость";
+                RoleTB.Text += "Гость";
+            } else
+            {
+                FIOTB.Text += user.UserSurname + " " + user.UserName + " " + user.UserPatronymic;
+
+                RoleTB.Text += user.UserRoleText;
+            }
 
             var currentProducts = IbragimovD41Entities.GetContext().Product.ToList();
 
@@ -84,6 +96,11 @@ namespace IbragimovD41
         private void SearchTBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             UpdateProducts();
+
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

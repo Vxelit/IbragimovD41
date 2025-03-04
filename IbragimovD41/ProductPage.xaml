@@ -11,41 +11,58 @@
     <Grid>
 
         <Grid>
+
             <Grid.RowDefinitions>
-                <RowDefinition MinHeight="60" Height="auto" ></RowDefinition>
+                <RowDefinition MinHeight="60" Height="auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <WrapPanel Height="auto" HorizontalAlignment="Center" Margin="3">
-                <TextBlock Name="ProductsCountText" Text="кол-во 30 из 30" Width="150" VerticalAlignment="Center" FontSize="15"></TextBlock>
-
-                <StackPanel Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
-                    <TextBlock Text="поиск по наименованию" FontSize="17"></TextBlock>
-                    <TextBox Name="SearchTBox"  TextChanged="SearchTBox_TextChanged"></TextBox>
+            <StackPanel>
+                <StackPanel>
+                    <TextBlock Name="FIOTB" Text="Вы авторизованы как " FontSize="15"></TextBlock>
+                    <TextBlock Name="RoleTB" Text="Роль: " FontSize="15"></TextBlock>
                 </StackPanel>
 
-                <StackPanel Width="280" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
+                <WrapPanel Height="auto" HorizontalAlignment="Center" Margin="3">
+                    <TextBlock Name="ProductsCountText" Text="кол-во 30 из 30" Width="150" VerticalAlignment="Center" FontSize="15"></TextBlock>
 
-                    <RadioButton Name="RButtonUp" Checked="RButtonUp_Checked" Content="по возрастанию стоимости" FontSize="17"></RadioButton>
-                    <RadioButton Name="RButtonDown" Checked="RButtonDown_Checked" Content="по убыванию стоимости" FontSize="17"></RadioButton>
+                    <StackPanel Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
+                        <TextBlock Text="поиск по наименованию" FontSize="17"></TextBlock>
+                        <TextBox Name="SearchTBox"  TextChanged="SearchTBox_TextChanged"></TextBox>
+                    </StackPanel>
 
-                </StackPanel>
+                    <StackPanel Width="280" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
 
-                <StackPanel Width="300" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
-                    <TextBlock Text="Фильтрация по скидке" FontSize="17" HorizontalAlignment="Center"></TextBlock>
-                    <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged" Width="250" HorizontalAlignment="Center" FontSize="17">
-                        <TextBlock Text="Все диапазоны"></TextBlock>
-                        <TextBlock Text="0 - 9,99%"></TextBlock>
-                        <TextBlock Text="10 - 14,99%"></TextBlock>
-                        <TextBlock Text="15% и более"></TextBlock>
-                    </ComboBox>
-                </StackPanel>
+                        <RadioButton Name="RButtonUp" Checked="RButtonUp_Checked" Content="по возрастанию стоимости" FontSize="17"></RadioButton>
+                        <RadioButton Name="RButtonDown" Checked="RButtonDown_Checked" Content="по убыванию стоимости" FontSize="17"></RadioButton>
 
-            </WrapPanel>
+                    </StackPanel>
+
+                    <StackPanel Width="300" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
+                        <TextBlock Text="Фильтрация по скидке" FontSize="17" HorizontalAlignment="Center"></TextBlock>
+                        <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged" Width="250" HorizontalAlignment="Center" FontSize="17">
+                            <TextBlock Text="Все диапазоны"></TextBlock>
+                            <TextBlock Text="0 - 9,99%"></TextBlock>
+                            <TextBlock Text="10 - 14,99%"></TextBlock>
+                            <TextBlock Text="15% и более"></TextBlock>
+                        </ComboBox>
+                    </StackPanel>
+
+                </WrapPanel>
+
+            </StackPanel>
 
 
 
             <ListView Grid.Row="1" Name="ProductListView" HorizontalContentAlignment="Stretch">
+
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Добавить к заказу" Click="MenuItem_Click"></MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                
+                
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
