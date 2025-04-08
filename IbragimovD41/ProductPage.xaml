@@ -1,45 +1,45 @@
 ﻿<Page x:Class="IbragimovD41.ProductPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:IbragimovD41"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProductPage">
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	  xmlns:local="clr-namespace:IbragimovD41"
+	  mc:Ignorable="d" 
+	  d:DesignHeight="450" d:DesignWidth="800"
+	  Title="ProductPage">
 
-    <Grid>
+	<Grid>
 
-        <Grid>
+		<Grid>
 
-            <Grid.RowDefinitions>
-                <RowDefinition MinHeight="60" Height="auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition MinHeight="60" Height="auto"></RowDefinition>
+				<RowDefinition Height="*"></RowDefinition>
+			</Grid.RowDefinitions>
 
-            <StackPanel>
-                <StackPanel>
-                    <TextBlock Name="FIOTB" Text="Вы авторизованы как " FontSize="15"></TextBlock>
-                    <TextBlock Name="RoleTB" Text="Роль: " FontSize="15"></TextBlock>
-                </StackPanel>
+			<StackPanel>
+				<StackPanel>
+					<TextBlock Name="FIOTB" Text="Вы авторизованы как " FontSize="15"></TextBlock>
+					<TextBlock Name="RoleTB" Text="Роль: " FontSize="15"></TextBlock>
+				</StackPanel>
 
-                <WrapPanel Height="auto" HorizontalAlignment="Center" Margin="3">
-                    <TextBlock Name="ProductsCountText" Text="кол-во 30 из 30" Width="150" VerticalAlignment="Center" FontSize="15"></TextBlock>
+				<WrapPanel Height="auto" HorizontalAlignment="Center" Margin="3">
+					<TextBlock Name="ProductsCountText" Text="кол-во 30 из 30" Width="150" VerticalAlignment="Center" FontSize="15"></TextBlock>
 
-                    <StackPanel Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
-                        <TextBlock Text="поиск по наименованию" FontSize="17"></TextBlock>
-                        <TextBox Name="SearchTBox"  TextChanged="SearchTBox_TextChanged"></TextBox>
-                    </StackPanel>
+					<StackPanel Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
+						<TextBlock Text="поиск по наименованию" FontSize="17"></TextBlock>
+						<TextBox Name="SearchTBox"  TextChanged="SearchTBox_TextChanged"></TextBox>
+					</StackPanel>
 
-                    <StackPanel Width="280" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
+					<StackPanel Width="280" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
 
-                        <RadioButton Name="RButtonUp" Checked="RButtonUp_Checked" Content="по возрастанию стоимости" FontSize="17"></RadioButton>
-                        <RadioButton Name="RButtonDown" Checked="RButtonDown_Checked" Content="по убыванию стоимости" FontSize="17"></RadioButton>
+						<RadioButton Name="RButtonUp" Checked="RButtonUp_Checked" Content="по возрастанию стоимости" FontSize="17"></RadioButton>
+						<RadioButton Name="RButtonDown" Checked="RButtonDown_Checked" Content="по убыванию стоимости" FontSize="17"></RadioButton>
 
-                    </StackPanel>
+					</StackPanel>
 
-                    <StackPanel Width="300" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
-                        <TextBlock Text="Фильтрация по скидке" FontSize="17" HorizontalAlignment="Center"></TextBlock>
+					<StackPanel Width="300" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3">
+						<TextBlock Text="Фильтрация по скидке" FontSize="17" HorizontalAlignment="Center"></TextBlock>
                         <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged" Width="250" HorizontalAlignment="Center" FontSize="17">
                             <TextBlock Text="Все диапазоны"></TextBlock>
                             <TextBlock Text="0 - 9,99%"></TextBlock>
@@ -48,69 +48,71 @@
                         </ComboBox>
                     </StackPanel>
 
-                </WrapPanel>
+                    <Button Name="OrderBtn" Click="OrderBtn_Click" Visibility="Hidden" Content="Заказ"></Button>
 
-            </StackPanel>
+				</WrapPanel>
+
+			</StackPanel>
 
 
 
-            <ListView Grid.Row="1" Name="ProductListView" HorizontalContentAlignment="Stretch">
+			<ListView Grid.Row="1" Name="ProductListView" HorizontalContentAlignment="Stretch">
 
-                <ListView.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="Добавить к заказу" Click="MenuItem_Click"></MenuItem>
-                    </ContextMenu>
-                </ListView.ContextMenu>
-                
-                
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="180"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="100"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="20"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
+				<ListView.ContextMenu>
+					<ContextMenu>
+						<MenuItem Header="Добавить к заказу" Click="MenuItem_Click"></MenuItem>
+					</ContextMenu>
+				</ListView.ContextMenu>
+				
+				
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="180"></ColumnDefinition>
+								<ColumnDefinition Width="*"></ColumnDefinition>
+								<ColumnDefinition Width="100"></ColumnDefinition>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="20"></RowDefinition>
+								<RowDefinition Height="*"></RowDefinition>
+								<RowDefinition Height="*"></RowDefinition>
+								<RowDefinition Height="*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
                             </Grid.RowDefinitions>
 
-                            <Image Width="180" Grid.Column="0" Stretch="UniformToFill" HorizontalAlignment="Center" Grid.RowSpan="4">
-                                <Image.Source>
-                                    <Binding Path="ImageFullPath">
-                                        <Binding.TargetNullValue>
-                                            <ImageSource>
-                                                image/picture.png
-                                            </ImageSource>
-                                        </Binding.TargetNullValue>
-                                    </Binding>
-                                </Image.Source>
-                            </Image>
+							<Image Width="180" Grid.Column="0" Stretch="UniformToFill" HorizontalAlignment="Center" Grid.RowSpan="4">
+								<Image.Source>
+									<Binding Path="ImageFullPath">
+										<Binding.TargetNullValue>
+											<ImageSource>
+												image/picture.png
+											</ImageSource>
+										</Binding.TargetNullValue>
+									</Binding>
+								</Image.Source>
+							</Image>
 
-                            <TextBlock Text="{Binding ProductName}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20" TextWrapping="Wrap"></TextBlock>
-                            <TextBlock Text="{Binding ProductDescription}"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="18"></TextBlock>
-                            <TextBlock Text="{Binding ProductManufacturer}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="18"></TextBlock>
-                            <TextBlock Text="{Binding ProductCost, StringFormat={} {0} руб.}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"  FontSize="18"></TextBlock>
+							<TextBlock Text="{Binding ProductName}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20" TextWrapping="Wrap"></TextBlock>
+							<TextBlock Text="{Binding ProductDescription}"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="18"></TextBlock>
+							<TextBlock Text="{Binding ProductManufacturer}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="18"></TextBlock>
+							<TextBlock Text="{Binding ProductCost, StringFormat={} {0} руб.}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"  FontSize="18"></TextBlock>
 
-                            <TextBlock Text="Скидка:" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="20"></TextBlock>
-                            <TextBlock Text="{Binding ProductDiscountAmount, StringFormat={} {0} %}" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" FontSize="23"></TextBlock>
+							<TextBlock Text="Скидка:" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="20"></TextBlock>
+							<TextBlock Text="{Binding ProductDiscountAmount, StringFormat={} {0} %}" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" FontSize="23"></TextBlock>
 
-                        </Grid>
-
-
-
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+						</Grid>
 
 
-        </Grid>
-    
-    
-    
-    </Grid>
+
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+
+
+		</Grid>
+	
+	
+	
+	</Grid>
 </Page>
